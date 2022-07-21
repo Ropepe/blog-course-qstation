@@ -1,14 +1,22 @@
 import React from "react";
-import Blogs from "./components/Blogs";
+import BlogList from "./pages/Main/BlogList";
 import "./index.css";
+import Hero from "./components/Hero/Hero";
+import Nav from "./components/Nav/Nav";
+import Reactions from "./components/Reactions/Reactions";
+
 interface IProps {}
 
 const App: React.FC<IProps> = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Blogs />
-    </div>
+    <>
+      <Nav />
+      <Hero />
+      <div className="containter">
+        <BlogList />
+        {/* <Reactions /> */}
+      </div>
+    </>
   );
 };
 

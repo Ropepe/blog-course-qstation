@@ -1,0 +1,23 @@
+.a {
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #f6d365;
+  color: #000;
+}
+.button {
+  color: #000;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 20px 1rem;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  width: 150px;
+  text-align: center;
+  text-decoration-style: none;
+}
+.button::marker {
+  content: "";
+}

@@ -1,0 +1,11 @@
+.emoji {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0 0.8rem;
+  overflow: auto;
+  transition: all 0.2s ease-in-out;
+  border: none;
+}
+.emoji:hover {
+  font-size: 2.1rem;
+}
