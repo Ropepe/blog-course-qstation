@@ -9,6 +9,13 @@ interface ICardProps {
   id: number;
   userId: number;
 }
+interface Reactions {
+  like: number;
+  dislike: number;
+  love: number;
+  haha: number;
+  wow: number;
+}
 
 const Card: React.FunctionComponent<ICardProps> = ({
   title,
@@ -27,6 +34,9 @@ const Card: React.FunctionComponent<ICardProps> = ({
           <p>{description.substring(0, 100)} ...</p>
         </div>
         <div className={styles.info}>
+          {/* <div className={styles.reactions}>
+            <Reactions />
+          </div> */}
           <Info
             author={users.map((user) => {
               if (user.id === userId) {
@@ -36,8 +46,7 @@ const Card: React.FunctionComponent<ICardProps> = ({
             id={id}
             date={posts.map((post) => {
               if (post.id == id) {
-                return `${post.date.getDay()}/${post.date.getDate()}/${post.date.getFullYear()}`;
-                /*post.date.toDateString()*/
+                return post.date;
               }
             })}
           />

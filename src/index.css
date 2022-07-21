@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Readex Pro", sans-serif;
+}
 .containter {
   width: 80%;
   height: 100%;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -1,21 +1,31 @@
 .container {
   position: relative;
-  background-color: #fff;
+  background-color: rgb(236, 236, 236);
   border-radius: 4px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
-  box-sizing: border-box;
-  flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.125);
+
+  /* width: 100%; */
 }
 .body {
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
   /* height: max-content; */
 }
 .info {
   position: absolute;
   display: block;
   justify-content: space-between;
-  bottom: 0px;
+  bottom: 0.5rem;
   width: 90%;
+}
+
+.body h1 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-variant: small-caps;
+  line-height: 0.9;
 }

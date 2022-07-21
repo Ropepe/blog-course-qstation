@@ -28,10 +28,19 @@ const BlogList: React.FC<IProps> = () => {
           title: res.title,
           body: res.body,
           userId: res.userId,
-          date: new Date(randomDate(new Date(2012, 0, 1), new Date())),
+          date: new Date(
+            randomDate(new Date(2012, 0, 1), new Date())
+          ).toLocaleDateString("ba-BA"),
+          reactions: {
+            like: (Math.random() * 10).toFixed(0),
+            dislike: (Math.random() * 10).toFixed(0),
+            love: (Math.random() * 10).toFixed(0),
+            haha: 0,
+            wow: (Math.random() * 10).toFixed(0),
+          },
         };
       });
-
+      // console.log(newArray);
       dispatch(postFetch(newArray));
     } catch (error) {
       console.log("GRESKA");
@@ -55,11 +64,17 @@ const BlogList: React.FC<IProps> = () => {
   }, [fetchBlogs, fetchUsers]);
 
   return (
-    <div className={Styles.blogs}>
-      {posts.posts.map((post) => {
-        return <Blog key={post.id} infos={post} />;
-      })}
-    </div>
+    <>
+      <div className={Styles.header}>
+        <h1 className={Styles.title}>LAST BLOG NEWS</h1>
+        <div className={Styles.line}></div>
+      </div>
+      <div className={Styles.blogs}>
+        {posts.posts.map((post) => {
+          return <Blog key={post.id} infos={post} />;
+        })}
+      </div>
+    </>
   );
 };
 

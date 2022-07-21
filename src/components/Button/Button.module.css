@@ -1,11 +1,17 @@
 .main {
-  background-color: gray;
-  color: white;
-  width: 100px;
-  height: 40px;
-  border: radius 5px;
+  background-color: #777;
+  color: rgb(231, 231, 231);
+  width: 80px;
+  height: 30px;
+  border-radius: 50px;
   border-style: none;
+  font-weight: 300;
+  transition: all 0.2s ease-out;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.19);
 }
 .main:hover {
-  background-color: black;
+  background-color: rgb(65, 65, 65);
+}
+.main:active {
+  background: rgb(0, 0, 0);
 }
