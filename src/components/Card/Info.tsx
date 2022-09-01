@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useAppSelector } from "../../Store/Hooks";
+import React from "react";
+
 import Button from "../Button/Button";
 import Reactions from "../Reactions/Reactions";
 import styles from "./Info.module.css";
@@ -14,7 +14,7 @@ const Info: React.FunctionComponent<IInfoProps> = ({ author, date, id }) => {
   return (
     <>
       <div className={styles.info}>
-        <Button>Detaljno</Button>
+        <Button id={id}>Detaljno</Button>
         <>
           <label>{author}</label>
           <label>{date}</label>

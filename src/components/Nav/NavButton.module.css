@@ -1,5 +1,6 @@
 .a {
   color: #fff;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -7,6 +8,7 @@
   color: #000;
 }
 .button {
+  text-decoration: none;
   color: #000;
   cursor: pointer;
   font-size: 1rem;

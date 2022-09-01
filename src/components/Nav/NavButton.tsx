@@ -8,7 +8,7 @@ interface INavButton {
 const NavButton: React.FunctionComponent<INavButton> = ({ children }) => {
   return (
     <li className={styles.button}>
-      <a className={styles.a}>{children}</a>
+      <div className={styles.a}>{children}</div>
     </li>
   );
 };

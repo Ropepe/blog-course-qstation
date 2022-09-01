@@ -31,6 +31,7 @@ export const postSlice = createSlice({
     },
     postCreate(state, action: PayloadAction<Post>) {
       state.posts.push(action.payload);
+      console.log(state.posts);
     },
     postUpdate(state, action: PayloadAction<Post>) {
       const index = state.posts.findIndex(
@@ -58,4 +59,10 @@ export const postSlice = createSlice({
     },
   },
 });
-export const { postFetch, postCreate, reactionUpdate } = postSlice.actions;
+export const {
+  postFetch,
+  postCreate,
+  reactionUpdate,
+  postDelete,
+  postUpdate,
+} = postSlice.actions;

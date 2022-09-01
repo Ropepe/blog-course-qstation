@@ -1,0 +1,23 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.body {
+  margin-bottom: 8rem;
+  /* height: max-content; */
+}
+.info {
+  position: absolute;
+  display: block;
+  justify-content: space-between;
+  bottom: 0.5rem;
+  width: 90%;
+}
+
+.body h1 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-variant: small-caps;
+  line-height: 0.9;
+}
