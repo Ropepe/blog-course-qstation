@@ -9,13 +9,6 @@ interface ICardProps {
   id: number;
   userId: number;
 }
-interface Reactions {
-  like: number;
-  dislike: number;
-  love: number;
-  haha: number;
-  wow: number;
-}
 
 const Card: React.FunctionComponent<ICardProps> = ({
   title,
