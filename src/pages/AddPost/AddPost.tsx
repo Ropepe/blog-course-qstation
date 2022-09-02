@@ -22,7 +22,7 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
   //   wow: (Math.random() * 10).toFixed(0),
 
   const [post, setPost] = useState<any>({
-    id: 0,
+    id: 100,
     title: "",
     body: "",
     userId: 0,
@@ -35,9 +35,10 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
       wow: 0,
     },
   });
-  const updateHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault(), console.log(post);
-    // dispatch(postCreate(post));
+  const updateHandler = (e: any) => {
+    alert("Success");
+    dispatch(postCreate(post));
+    e.preventDefault();
   };
 
   return (
@@ -47,7 +48,7 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
           <h1>Add post</h1>
           <form
             onSubmit={() => {
-              updateHandler;
+              updateHandler(event);
             }}
             className={styles.form}
           >
@@ -56,7 +57,7 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
               {users.map((user) => {
                 return (
                   <option key={user.id} value={user.id}>
-                    {user.name}asdas
+                    {user.name}
                   </option>
                 );
               })}
