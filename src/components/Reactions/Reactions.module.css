@@ -1,0 +1,13 @@
+.reactionbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  height: 2rem;
+  height: 40px;
+  overflow: auto;
+}

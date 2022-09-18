@@ -1,0 +1,25 @@
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  /* grid-gap: 30px; */
+  justify-content: center;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-direction: column;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-variant: small-caps;
+  padding: 5rem 0 1rem 0;
+}
+.line {
+  width: 60%;
+  height: 1px;
+  background-color: #777;
+  align-items: baseline;
+}

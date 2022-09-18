@@ -1,0 +1,15 @@
+.emoji {
+  background-color: rgb(1, 1, 1, 0);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 0 0.8rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+.emoji:hover {
+  font-size: 2.1rem;
+}
