@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import Moment from "react-moment";
+import moment from "moment";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Store/Hooks";
 import { postCreate } from "../../Store/post-slice";
 import styles from "./AddPost.module.css";
@@ -8,25 +11,14 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
   const users = useAppSelector((state) => state.users.users);
   const posts = useAppSelector((state) => state.posts.posts);
   const dispatch = useAppDispatch();
-
-  // id: 0,
-  // title: "",
-  // body: "",
-  // userId: 0,
-  // date: new Date().toLocaleDateString("ba-BA"),
-  // reactions: {
-  //   like: (Math.random() * 10).toFixed(0),
-  //   dislike: (Math.random() * 10).toFixed(0),
-  //   love: (Math.random() * 10).toFixed(0),
-  //   haha: 0,
-  //   wow: (Math.random() * 10).toFixed(0),
-
+  const navigate = useNavigate();
   const [post, setPost] = useState<any>({
-    id: 100,
+    id: 0,
     title: "",
     body: "",
-    userId: 0,
-    date: new Date().toLocaleDateString("ba-BA"),
+    userId: 1,
+    date: moment().format("DD/MM/YYYY"),
+    // date: <Moment format="DD/MM/YYYY - hh:mm:ss">{new Date()}</Moment>,
     reactions: {
       like: 0,
       dislike: 0,
@@ -35,9 +27,31 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
       wow: 0,
     },
   });
+
+  const updateId = useCallback(async () => {
+    setPost((prevState: any) => {
+      try {
+        return { ...prevState, id: Number(posts[posts.length - 1].id + 1)! };
+      } catch (error) {
+        navigate("/addpost");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    updateId();
+  }, [updateId]);
+
+  const updateUserId = (id: any) => {
+    setPost((prevState: any) => {
+      return { ...prevState, userId: Number(id) };
+    });
+  };
+
   const updateHandler = (e: any) => {
-    alert("Success");
     dispatch(postCreate(post));
+    alert("Post je dodat!");
+    navigate("/");
     e.preventDefault();
   };
 
@@ -53,7 +67,11 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
             className={styles.form}
           >
             <label>Author:</label>
-            <select>
+            <select
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                updateUserId(e.target.value)
+              }
+            >
               {users.map((user) => {
                 return (
                   <option key={user.id} value={user.id}>
@@ -63,9 +81,29 @@ const AddPost: React.FunctionComponent<IAddPostProps> = (props) => {
               })}
             </select>
             <label>Title:</label>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPost((prevState: any) => {
+                  return {
+                    ...prevState,
+                    title: e.target.value,
+                  };
+                })
+              }
+            />
             <label>Content:</label>
-            <textarea className={styles.textarea}></textarea>
+            <textarea
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                setPost((prevState: any) => {
+                  return {
+                    ...prevState,
+                    body: e.target.value,
+                  };
+                })
+              }
+              className={styles.textarea}
+            ></textarea>
 
             <div></div>
             <button type="submit" className={styles.button}>

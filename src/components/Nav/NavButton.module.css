@@ -23,3 +23,15 @@
 .button::marker {
   content: "";
 }
+@media all and (max-width: 768px) {
+  .button {
+    width: 100%;
+    /* background-color: #f6c344; */
+    position: relative;
+  }
+}
+@media only screen and (max-width: 450px) {
+  * {
+    /* background-color: #f6c344; */
+  }
+}

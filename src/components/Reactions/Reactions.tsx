@@ -18,7 +18,39 @@ const Reactions: React.FunctionComponent<IReactionsProps> = ({ idR }) => {
 
   return (
     <div className={styles.reactionbar}>
-      <Emoji count={posts[idR - 1].reactions.like} reaction="like" id={idR}>
+      {posts.map((post) => {
+        if (post.id === idR) {
+          return (
+            <div key={post.id}>
+              <Emoji count={post.reactions.like} reaction="like" id={idR}>
+                {like}
+              </Emoji>
+              <Emoji count={post.reactions.dislike} reaction="dislike" id={idR}>
+                {dislike}
+              </Emoji>
+              <Emoji count={post.reactions.love} reaction="love" id={idR}>
+                {love}
+              </Emoji>
+              <Emoji count={post.reactions.haha} reaction="haha" id={idR}>
+                {haha}
+              </Emoji>
+              <Emoji count={post.reactions.wow} reaction="wow" id={idR}>
+                {wow}
+              </Emoji>
+            </div>
+          );
+        } else {
+          return null;
+        }
+      })}
+    </div>
+  );
+};
+
+export default Reactions;
+
+{
+  /* <Emoji count={posts[idR - 1].reactions.like} reaction="like" id={idR}>
         {like}
       </Emoji>
       <Emoji
@@ -36,9 +68,5 @@ const Reactions: React.FunctionComponent<IReactionsProps> = ({ idR }) => {
       </Emoji>
       <Emoji count={posts[idR - 1].reactions.wow} reaction="wow" id={idR}>
         {wow}
-      </Emoji>
-    </div>
-  );
-};
-
-export default Reactions;
+      </Emoji> */
+}

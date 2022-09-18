@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Moment from "react-moment";
 import { useAppSelector } from "../../Store/Hooks";
 import styles from "./Card.module.css";
 import Info from "./Info";
@@ -23,8 +24,8 @@ const Card: React.FunctionComponent<ICardProps> = ({
     <>
       <div className={styles.container}>
         <div className={styles.body}>
-          <h1>{title}</h1>
-          <p>{description.substring(0, 100)} ...</p>
+          <h1>{title.toLowerCase()}</h1>
+          <p>{description.substring(0, 100).toLowerCase()} ...</p>
         </div>
         <div className={styles.info}>
           {/* <div className={styles.reactions}>

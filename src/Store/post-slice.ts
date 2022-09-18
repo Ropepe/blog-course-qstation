@@ -30,7 +30,6 @@ export const postSlice = createSlice({
       state.posts = action.payload;
     },
     postCreate(state, action: PayloadAction<Post>) {
-      alert("NAPRAVLJEN POST");
       state.posts.push(action.payload);
       console.log(state.posts);
     },

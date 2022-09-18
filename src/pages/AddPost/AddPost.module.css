@@ -52,3 +52,25 @@
   height: 8rem;
   resize: none;
 }
+
+@media only screen and (max-width: 1200px) {
+  * {
+    /* background-color: #f64444; */
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  * {
+    /* background-color: #151528; */
+  }
+  .form_group {
+    width: 100%;
+    background-color: unset;
+    box-shadow: unset;
+  }
+}
+@media only screen and (max-width: 450px) {
+  * {
+    /* background-color: #f6c344; */
+  }
+}

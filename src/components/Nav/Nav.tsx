@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import styles from "./Nav.module.css";
 import NavButton from "./NavButton";
 import Logo from "../../assets/R-logo-white.png";
@@ -8,6 +8,7 @@ interface INavProps {}
 
 const Nav: React.FunctionComponent<INavProps> = (props) => {
   const navigate = useNavigate();
+  const [isOpened, setIsOpened] = useState<boolean>(false);
 
   return (
     <>
@@ -17,7 +18,7 @@ const Nav: React.FunctionComponent<INavProps> = (props) => {
           <h2>the Real Blog</h2>
         </div>
         <div className={styles.navigation}>
-          <ul>
+          <ul className={styles.main_links}>
             <Link className={styles.link} to="/">
               <NavButton>Main</NavButton>
             </Link>
@@ -29,7 +30,30 @@ const Nav: React.FunctionComponent<INavProps> = (props) => {
               <NavButton>About me</NavButton>
             </Link>
           </ul>
+          <a
+            className={styles.menu_btn}
+            id="mobile"
+            onClick={() => {
+              setIsOpened(!isOpened);
+            }}
+          >
+            ☰
+          </a>
         </div>
+        {isOpened && (
+          <ul className={styles.add_link}>
+            <Link className={styles.link} to="/">
+              <NavButton>Main</NavButton>
+            </Link>
+
+            <Link className={styles.link} to="/addpost">
+              <NavButton>Add post</NavButton>
+            </Link>
+            <Link className={styles.link} to="/about">
+              <NavButton>About me</NavButton>
+            </Link>
+          </ul>
+        )}
       </div>
     </>
   );
